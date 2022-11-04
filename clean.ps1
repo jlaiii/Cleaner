@@ -1,8 +1,11 @@
+$ErrorActionPreference = 'SilentlyContinue'
+
+
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 Write-Host "E-Vaders Cleaner"
 Start-Sleep -Seconds 2
 
-$ErrorActionPreference = 'SilentlyContinue'
+
 $pathUD = "C:\Program Files (x86)\Steam\userdata\"
 $pathDU = "C:\Program Files (x86)\Steam\dumps\"
 $pathLO = "C:\Program Files (x86)\Steam\logs\"
@@ -11,19 +14,22 @@ $pathACF = "C:\Program Files (x86)\Steam\steamapps\*" #Change path
 $regSU = "HKCU:\Software\Valve\Steam\Users\*"
 $regRU = "HKCU:\Software\Facepunch Studios LTD\Rust\"
 
-Write-Host "Killing & Stopping Processs"
-stop-service "BEService"
-stop-service "EasyAntiCheat_EOS"
-stop-service "EasyAntiCheat"
+Write-Host "killing & Stopping Process's"
+Start-Sleep -Seconds 1
 Stop-Process -processname "BEService"
 Stop-Process -processname "EasyAntiCheat"
 Stop-Process -processname "Steam"
-Stop-Process -processname "rust"
 Stop-Process -processname "rustclient"
 Stop-Process -processname "arma3"
-Start-Sleep -Seconds 2
-Write-Host "Deleting Data: EasyAntiCheat, BattlEye, EpicGames, Fortnite, Facepunch, Rockstar, Steam, Arma, Riot Game, Temp & Logs. PLEASE WAIT!"
-Write-Host "Deleting Cheat Configs: LostCheats, PlantHack PLEASE WAIT!"
+stop-service "BEService"
+stop-service "EasyAntiCheat_EOS"
+stop-service "EasyAntiCheat"
+
+Write-Host "Deleting Data: EasyAntiCheat, BattlEye, EpicGames, Fortnite, Facepunch, Rockstar, Steam, Arma, Riot Game, Temp & Logs."
+Write-Host "Deleting Cheat Configs: LostCheats, PlantHack"
+Start-Sleep -Seconds 1
+
+Get-ChildItem -Path "C:\Assets" | Foreach-Object {Remove-Item $_ -Force -recurse}
 
 $path = 'C:\Program Files (x86)\Steam\steamapps\common'
 Get-ChildItem $path -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye' | Remove-Item -Recurse -Confirm:$false -Force
@@ -33,15 +39,13 @@ Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'Battl
 Write-Host "EasyAntiCheat, BattlEye Removed & Riot Game Removed"
 
 Write-Host "Cleaning Steam User Data"
+Start-Sleep -Seconds 1
 Get-ChildItem -Path $pathUD -Include * | remove-Item -recurse 
 Get-ChildItem -Path $pathDU -Include * | remove-Item -recurse 
 Get-ChildItem -Path $pathLO -Include * | remove-Item -recurse 
 Get-ChildItem -Path $pathCO -Include * | remove-Item -recurse
-Remove-Item â€“path $pathACF -include *.acf
+Remove-Item –path $pathACF -include *.acf
 
-
-Get-ChildItem -Path "C:\Assets" | Foreach-Object {Remove-Item $_ -Force -recurse}
-Write-Host "PlantHack Removed"
 
 #Cod2019
 Write-Host "Cleaning Cod2019"
@@ -75,8 +79,7 @@ Write-Host "Registry Keys have been cleared"
 Write-Host " "
 Write-Host " "
 Write-Host "Cleaning Complete closing....."
-Start-Sleep -Seconds 3
-Write-Host "Restarting your PC..."
-Start-Sleep -Seconds 5
-Restart-Computer -ComputerName -Force -whatif
-Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
+Start-Sleep -Seconds 1
+Write-Host " "
+Write-Host "Please Restart your PC..."
+Start-Sleep -Seconds 10
