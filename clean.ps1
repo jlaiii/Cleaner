@@ -19,6 +19,7 @@ Stop-Process -processname "BEService"
 Stop-Process -processname "EasyAntiCheat"
 Stop-Process -processname "Steam"
 Stop-Process -processname "rust"
+Stop-Process -processname "rustclient"
 Stop-Process -processname "arma3"
 
 Write-Host "Deleting Data: EasyAntiCheat, BattlEye, EpicGames, Fortnite, Facepunch, Rockstar, Steam, Arma, Riot Game, Temp & Logs. PLEASE WAIT!"
