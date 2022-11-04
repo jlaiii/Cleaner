@@ -28,7 +28,7 @@ $path = 'C:\Program Files (x86)\Steam\steamapps\common'
 Get-ChildItem $path -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye' | Remove-Item -Recurse -Confirm:$false -Force
 
 $path2 = 'C:\Users\*\AppData'
-Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'SteamVR', 'cache','Cache', 'Logs', 'Temp' , 'log' | Remove-Item -Recurse -Confirm:$false -Force
+Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'SteamVR', 'Logs', 'Temp' , 'log' | Remove-Item -Recurse -Confirm:$false -Force
 Write-Host "EasyAntiCheat, BattlEye Removed & Riot Game Removed"
 
 Write-Host "Cleaning Steam User Data"
@@ -36,7 +36,7 @@ Get-ChildItem -Path $pathUD -Include * | remove-Item -recurse
 Get-ChildItem -Path $pathDU -Include * | remove-Item -recurse 
 Get-ChildItem -Path $pathLO -Include * | remove-Item -recurse 
 Get-ChildItem -Path $pathCO -Include * | remove-Item -recurse
-Remove-Item –path $pathACF -include *.acf
+Remove-Item â€“path $pathACF -include *.acf
 
 
 Get-ChildItem -Path "C:\Assets" | Foreach-Object {Remove-Item $_ -Force -recurse}
