@@ -11,7 +11,7 @@ $pathACF = "C:\Program Files (x86)\Steam\steamapps\*" #Change path
 $regSU = "HKCU:\Software\Valve\Steam\Users\*"
 $regRU = "HKCU:\Software\Facepunch Studios LTD\Rust\"
 
-Write-Host "Safty: killing Stopping Processs"
+Write-Host "Killing & Stopping Processs"
 stop-service "BEService"
 stop-service "EasyAntiCheat_EOS"
 stop-service "EasyAntiCheat"
@@ -21,7 +21,7 @@ Stop-Process -processname "Steam"
 Stop-Process -processname "rust"
 Stop-Process -processname "rustclient"
 Stop-Process -processname "arma3"
-
+Start-Sleep -Seconds 2
 Write-Host "Deleting Data: EasyAntiCheat, BattlEye, EpicGames, Fortnite, Facepunch, Rockstar, Steam, Arma, Riot Game, Temp & Logs. PLEASE WAIT!"
 Write-Host "Deleting Cheat Configs: LostCheats, PlantHack PLEASE WAIT!"
 
