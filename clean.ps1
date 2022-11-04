@@ -36,7 +36,7 @@ Get-ChildItem -Path $pathUD -Include * | remove-Item -recurse
 Get-ChildItem -Path $pathDU -Include * | remove-Item -recurse 
 Get-ChildItem -Path $pathLO -Include * | remove-Item -recurse 
 Get-ChildItem -Path $pathCO -Include * | remove-Item -recurse
-Remove-Item â€“path $pathACF -include *.acf
+Remove-Item –path $pathACF -include *.acf
 
 
 Get-ChildItem -Path "C:\Assets" | Foreach-Object {Remove-Item $_ -Force -recurse}
