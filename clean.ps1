@@ -21,6 +21,7 @@ Stop-Process -processname "EasyAntiCheat"
 Stop-Process -processname "Steam"
 Stop-Process -processname "rustclient"
 Stop-Process -processname "arma3"
+Stop-Process -processname "EpicGamesLauncher"
 stop-service "BEService"
 stop-service "EasyAntiCheat_EOS"
 stop-service "EasyAntiCheat"
@@ -78,8 +79,8 @@ Write-Host "Registry Keys have been cleared"
 
 Write-Host " "
 Write-Host " "
-Write-Host "Cleaning Complete closing....."
+Write-Host "Cleaning Complete!"
 Start-Sleep -Seconds 1
 Write-Host " "
 Write-Host "Please Restart your PC..."
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 15
