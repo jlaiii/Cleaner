@@ -45,7 +45,7 @@ Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'Battl
 Write-Host "EasyAntiCheat, BattlEye Removed & Riot Game Removed"
 
 #any thing in Documents
-$path3 = 'C:\Users\*\AppData'
+$path3 = 'C:\Users\*\Documents\Rockstar Games'
 Get-ChildItem $path3 -Recurse -Force -Directory -Include 'Impulse', 'Rockstar Games' | Remove-Item -Recurse -Confirm:$false -Force
 
 
