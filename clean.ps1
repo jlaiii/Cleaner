@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v0.1 Last Updated 11/4/22"
+$Title = "E-Vaders Cleaner v0.1 - Last Updated 11/4/22"
 $host.UI.RawUI.WindowTitle = $Title
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
