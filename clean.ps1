@@ -2,8 +2,11 @@ $ErrorActionPreference = 'SilentlyContinue'
 
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
+clear
 Write-Host "E-Vaders Cleaner"
 Start-Sleep -Seconds 2
+Write-Host "Starting"
+Start-Sleep -Seconds 1
 
 
 $pathUD = "C:\Program Files (x86)\Steam\userdata\"
@@ -14,7 +17,7 @@ $pathACF = "C:\Program Files (x86)\Steam\steamapps\*" #Change path
 $regSU = "HKCU:\Software\Valve\Steam\Users\*"
 $regRU = "HKCU:\Software\Facepunch Studios LTD\Rust\"
 
-Write-Host "killing & Stopping Process's"
+Write-Host "killing & Stopping Anti-Cheats and game Process's"
 Start-Sleep -Seconds 1
 Stop-Process -processname "BEService"
 Stop-Process -processname "EasyAntiCheat"
@@ -83,4 +86,7 @@ Write-Host "Cleaning Complete!"
 Start-Sleep -Seconds 1
 Write-Host " "
 Write-Host "Please Restart your PC..."
+Write-Host " "
+Write-Host " "
+Write-Host "Discord: Ring0#3557"
 Start-Sleep -Seconds 15
