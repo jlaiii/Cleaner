@@ -1,9 +1,13 @@
 $ErrorActionPreference = 'SilentlyContinue'
-
+$Title = "E-Vaders Cleaner v0.1"
+$host.UI.RawUI.WindowTitle = $Title
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 clear
 Write-Host "E-Vaders Cleaner"
+Start-Sleep -Seconds 2
+Write-Host ""
+Write-Host "Supported Games: All steam games, epic games, rockstar games and Riot Games"
 Start-Sleep -Seconds 2
 Write-Host "Starting"
 Start-Sleep -Seconds 1
@@ -19,18 +23,21 @@ $regRU = "HKCU:\Software\Facepunch Studios LTD\Rust\"
 
 Write-Host "killing & Stopping Anti-Cheats and game Process's"
 Start-Sleep -Seconds 1
-Stop-Process -processname "BEService"
-Stop-Process -processname "EasyAntiCheat"
-Stop-Process -processname "Steam"
-Stop-Process -processname "rustclient"
-Stop-Process -processname "arma3"
-Stop-Process -processname "EpicGamesLauncher"
+Stop-Process -processname "BEService*"
+Stop-Process -processname "EasyAnti*"
+Stop-Process -processname "Steam*"
+Stop-Process -processname "rust*"
+Stop-Process -processname "arma*"
+Stop-Process -processname "EpicGames*"
 stop-service "BEService"
 stop-service "EasyAntiCheat_EOS"
 stop-service "EasyAntiCheat"
+Get-Service -Name "EasyAntiCheat*"
+Get-Service -Name "BEService*"
 Start-Sleep -Seconds 1
 Write-Host "Deleting Data: EasyAntiCheat, BattlEye, EpicGames, Fortnite, Facepunch, Rockstar, Steam, Arma, Riot Game, Temp & Logs."
 Write-Host "Deleting Cheat Configs: LostCheats, PlantHack"
+Write-Host "Please WAIT!"
 Start-Sleep -Seconds 1
 
 Get-ChildItem -Path "C:\Assets" | Foreach-Object {Remove-Item $_ -Force -recurse}
