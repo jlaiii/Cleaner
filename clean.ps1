@@ -28,19 +28,26 @@ Stop-Process -processname "EpicGamesLauncher"
 stop-service "BEService"
 stop-service "EasyAntiCheat_EOS"
 stop-service "EasyAntiCheat"
-
+Start-Sleep -Seconds 1
 Write-Host "Deleting Data: EasyAntiCheat, BattlEye, EpicGames, Fortnite, Facepunch, Rockstar, Steam, Arma, Riot Game, Temp & Logs."
 Write-Host "Deleting Cheat Configs: LostCheats, PlantHack"
 Start-Sleep -Seconds 1
 
 Get-ChildItem -Path "C:\Assets" | Foreach-Object {Remove-Item $_ -Force -recurse}
 
+#Any Games in steam folder
 $path = 'C:\Program Files (x86)\Steam\steamapps\common'
 Get-ChildItem $path -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye' | Remove-Item -Recurse -Confirm:$false -Force
 
+#any thing in appdata
 $path2 = 'C:\Users\*\AppData'
-Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'SteamVR', 'Logs', 'Temp' , 'log' | Remove-Item -Recurse -Confirm:$false -Force
+Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'SteamVR', 'Logs', 'Temp' , 'log', 'Arma 3' | Remove-Item -Recurse -Confirm:$false -Force
 Write-Host "EasyAntiCheat, BattlEye Removed & Riot Game Removed"
+
+#any thing in Documents
+$path3 = 'C:\Users\*\AppData'
+Get-ChildItem $path3 -Recurse -Force -Directory -Include 'Impulse', 'Rockstar Games' | Remove-Item -Recurse -Confirm:$false -Force
+
 
 Write-Host "Cleaning Steam User Data"
 Start-Sleep -Seconds 1
