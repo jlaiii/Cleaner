@@ -1,21 +1,39 @@
 $ErrorActionPreference = 'SilentlyContinue'
-param([switch]$Elevated)
-
-function Test-Admin {
-    $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
-    $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
-}
-
-if ((Test-Admin) -eq $false)  {
-    if ($elevated) {
-        # tried to elevate, did not work, aborting
-    } else {
-        Start-Process powershell.exe -Verb RunAs -ArgumentList ('-noprofile -noexit -file "{0}" -elevated' -f ($myinvocation.MyCommand.Definition))
+write-host "MUST RUN AS ADMIN!"
+Function Check-RunAsAdministrator()
+{
+  #Get current user context
+  $CurrentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
+  
+  #Check user is running the script is member of Administrator Group
+  if($CurrentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))
+  {
+       Write-host "Script is running with Administrator privileges!"
+  }
+  else
+    {
+       #Create a new Elevated process to Start PowerShell
+       $ElevatedProcess = New-Object System.Diagnostics.ProcessStartInfo "PowerShell";
+ 
+       # Specify the current script path and name as a parameter
+       $ElevatedProcess.Arguments = "& '" + $script:MyInvocation.MyCommand.Path + "'"
+ 
+       #Set the Process to elevated
+       $ElevatedProcess.Verb = "runas"
+ 
+       #Start the new elevated process
+       [System.Diagnostics.Process]::Start($ElevatedProcess)
+ 
+       #Exit from the current, unelevated, process
+       Exit
+ 
     }
-    exit
 }
+ 
+#Check Script is running with Elevated Privileges
+Check-RunAsAdministrator
+clear
 
-'running with full privileges'
 Set-ExecutionPolicy "Unrestricted"
 $Title = "E-Vaders Cleaner v0.8"
 $host.UI.RawUI.WindowTitle = $Title
