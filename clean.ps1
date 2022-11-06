@@ -1,12 +1,8 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v0.9"
+$Title = "E-Vaders Cleaner v2"
 write-host "MUST RUN AS ADMIN!"
-if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))  
-{  
-  $arguments = "& '" +$myinvocation.mycommand.definition + "'"
-  Start-Process powershell -Verb runAs -ArgumentList $arguments
-  Break
-}
+
+
 clear
 
 Set-ExecutionPolicy "Unrestricted"
@@ -59,8 +55,8 @@ Remove-Item 'C:\Assets' -Recurse
 Remove-Item 'C:\Program Files (x86)\Rockstar Games' -Recurse
 
 #Any Games in steam folder
-#$path = 'C:\Program Files (x86)\Steam\steamapps\common'
-#Get-ChildItem $path -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye' | Remove-Item -Recurse -Confirm:$false -Force
+$path = 'C:\Program Files (x86)\Steam\steamapps\common'
+Get-ChildItem $path -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye' | Remove-Item -Recurse -Confirm:$false -Force
 
 #any thing in appdata
 $path2 = 'C:\Users\*\AppData'
