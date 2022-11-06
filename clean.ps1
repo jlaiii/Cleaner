@@ -1,4 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
+Start-Process powershell -Verb runAs
 Set-ExecutionPolicy "Unrestricted"
 $Title = "E-Vaders Cleaner v0.7"
 $host.UI.RawUI.WindowTitle = $Title
