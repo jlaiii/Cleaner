@@ -1,8 +1,10 @@
 $ErrorActionPreference = 'SilentlyContinue'
 $Title = "E-Vaders Cleaner v1.0.0"
 $host.UI.RawUI.WindowTitle = $Title
+
 write-host "MUST RUN AS ADMIN!"
 
+Clear-DnsClientCache
 
 clear
 
