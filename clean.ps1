@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v0.1"
+$Title = "E-Vaders Cleaner v0.2"
 $host.UI.RawUI.WindowTitle = $Title
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
@@ -40,6 +40,7 @@ Write-Host "Deleting Cheat Configs: LostCheats, PlantHack"
 Write-Host "Please WAIT!"
 Start-Sleep -Seconds 1
 
+Get-ChildItem -Path "C:\Riot Games" | Foreach-Object {Remove-Item $_ -Force -recurse}
 Get-ChildItem -Path "C:\Assets" | Foreach-Object {Remove-Item $_ -Force -recurse}
 
 #Any Games in steam folder
