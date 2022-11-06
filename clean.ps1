@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v0.4"
+$Title = "E-Vaders Cleaner v0.5"
 $host.UI.RawUI.WindowTitle = $Title
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
@@ -11,6 +11,7 @@ Write-Host "Supported Games: All steam games, epic games, rockstar games and Rio
 Start-Sleep -Seconds 2
 Write-Host "Starting"
 Start-Sleep -Seconds 1
+
 
 
 $pathUD = "C:\Program Files (x86)\Steam\userdata\"
@@ -29,6 +30,7 @@ Stop-Process -processname "Steam*"
 Stop-Process -processname "rust*"
 Stop-Process -processname "arma*"
 Stop-Process -processname "EpicGames*"
+Stop-Process -processname "SocialClub*"
 stop-service "BEService"
 stop-service "EasyAntiCheat_EOS"
 stop-service "EasyAntiCheat"
@@ -38,22 +40,20 @@ Start-Sleep -Seconds 1
 Write-Host "Deleting Data: EasyAntiCheat, BattlEye, EpicGames, Fortnite, Facepunch, Rockstar, Steam, Arma, Riot Game, Temp & Logs."
 Write-Host "Deleting Cheat Configs: LostCheats, PlantHack"
 Write-Host "Please WAIT!"
-Start-Sleep -Seconds 1
 
+$path0 = 'C:\'
+Get-ChildItem $path0 -Recurse -Force -Directory -Include 'EasyAnti*', 'BattlEye*', 'Riot Game*', | Remove-Item -Recurse -Confirm:$false -Force -Name
 
-Remove-Item 'C:\Riot Games' -Recurse
 Remove-Item 'C:\Assets' -Recurse
-Remove-Item 'C:\Program Files (x86)\EasyAntiCheat' -Recurse
-Remove-Item 'C:\C:\Program Files (x86)\EasyAntiCheat_EOS' -Recurse
-Remove-Item 'C:\ProgramData\Riot Games' -Recurse
+Remove-Item 'C:\Program Files (x86)\Rockstar Games' -Recurse
 
 #Any Games in steam folder
-$path = 'C:\Program Files (x86)\Steam\steamapps\common'
-Get-ChildItem $path -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye' | Remove-Item -Recurse -Confirm:$false -Force
+#$path = 'C:\Program Files (x86)\Steam\steamapps\common'
+#Get-ChildItem $path -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye' | Remove-Item -Recurse -Confirm:$false -Force
 
 #any thing in appdata
 $path2 = 'C:\Users\*\AppData'
-Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'SteamVR', 'Logs', 'Temp' , 'log', 'Arma 3' | Remove-Item -Recurse -Confirm:$false -Force
+Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'Logs', 'Temp' , 'log', 'Arma 3' | Remove-Item -Recurse -Confirm:$false -Force
 Write-Host "EasyAntiCheat, BattlEye Removed & Riot Game Removed"
 
 #any thing in Documents
