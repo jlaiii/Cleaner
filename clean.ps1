@@ -1,5 +1,6 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v1.0.1"
+$Title = "E-Vaders Cleaner v1.0.0"
+$host.UI.RawUI.WindowTitle = $Title
 write-host "MUST RUN AS ADMIN!"
 
  param([switch]$Elevated)
@@ -22,8 +23,7 @@ exit
 clear
 
 Set-ExecutionPolicy "Unrestricted"
-$Title = "E-Vaders Cleaner v0.8"
-$host.UI.RawUI.WindowTitle = $Title
+
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 clear
