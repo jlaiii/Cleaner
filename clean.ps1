@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v0.5"
+$Title = "E-Vaders Cleaner v0.6"
 $host.UI.RawUI.WindowTitle = $Title
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
@@ -42,7 +42,7 @@ Write-Host "Deleting Cheat Configs: LostCheats, PlantHack"
 Write-Host "Please WAIT!"
 
 $path0 = 'C:\'
-Get-ChildItem $path0 -Recurse -Force -Directory -Include 'EasyAnti*', 'BattlEye*', 'Riot Game*' | Remove-Item -Recurse -Confirm:$false -Force -Name
+Get-ChildItem $path0 -Recurse -Force -Directory -Include 'EasyAnti*', 'BattlEye*', 'Riot Game*' | Remove-Item -Recurse -Confirm:$false -Force
 
 Remove-Item 'C:\Assets' -Recurse
 Remove-Item 'C:\Program Files (x86)\Rockstar Games' -Recurse
