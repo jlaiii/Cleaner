@@ -1,11 +1,7 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v1.0.0"
+$Title = "E-Vaders Cleaner v1.0.1"
 $host.UI.RawUI.WindowTitle = $Title
-
-write-host "MUST RUN AS ADMIN!"
-
 Clear-DnsClientCache
-
 clear
 
 Set-ExecutionPolicy "Unrestricted"
@@ -20,6 +16,7 @@ Write-Host "Supported Games: All steam games, epic games, rockstar games and Rio
 Start-Sleep -Seconds 2
 Write-Host "Starting"
 Start-Sleep -Seconds 1
+
 
 
 
@@ -51,23 +48,19 @@ Write-Host "Deleting Cheat Configs: LostCheats, PlantHack"
 Write-Host "Please WAIT!"
 
 $path0 = 'C:\'
-Get-ChildItem $path0 -Recurse -Force -Directory -Include 'EasyAnti*', 'BattlEye*', 'Riot Game*' | Remove-Item -Recurse -Confirm:$false -Force
+Get-ChildItem $path0 -Recurse -Force -Directory -Include 'EasyAnti*', 'BattlEye*', 'Riot Game*' | Remove-Item -Recurse -Confirm:$false -Force -Verbose
 
-Remove-Item 'C:\Assets' -Recurse
-Remove-Item 'C:\Program Files (x86)\Rockstar Games' -Recurse
-
-#Any Games in steam folder
-$path = 'C:\Program Files (x86)\Steam\steamapps\common'
-Get-ChildItem $path -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye' | Remove-Item -Recurse -Confirm:$false -Force
+Remove-Item 'C:\Assets' -Recurse -Verbose
+Remove-Item 'C:\Program Files (x86)\Rockstar Games' -Recurse -Verbose
 
 #any thing in appdata
 $path2 = 'C:\Users\*\AppData'
-Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'Logs', 'Temp' , 'log', 'Arma 3' | Remove-Item -Recurse -Confirm:$false -Force
+Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'Logs', 'Temp' , 'log', 'Arma 3' | Remove-Item -Recurse -Confirm:$false -Force -Verbose
 Write-Host "EasyAntiCheat, BattlEye Removed & Riot Game Removed"
 
 #any thing in Documents
 $path3 = 'C:\Users\*\Documents'
-Get-ChildItem $path3 -Recurse -Force -Directory -Include 'Impulse', 'Rockstar Games' | Remove-Item -Recurse -Confirm:$false -Force
+Get-ChildItem $path3 -Recurse -Force -Directory -Include 'Impulse', 'Rockstar Games' | Remove-Item -Recurse -Confirm:$false -Force -Verbose
 
 
 Write-Host "Cleaning Steam User Data"
@@ -117,4 +110,4 @@ Write-Host "Please Restart your PC..."
 Write-Host " "
 Write-Host " "
 Write-Host "Discord: Ring0#3557"
-Start-Sleep -Seconds 15
+Start-Sleep -Seconds 20
