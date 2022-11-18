@@ -43,8 +43,9 @@ stop-service "EasyAntiCheat"
 Get-Service -Name "EasyAntiCheat*"
 Get-Service -Name "BEService*"
 Start-Sleep -Seconds 1
-Write-Host "Deleting Data: EasyAntiCheat, BattlEye, EpicGames, Fortnite, Facepunch, Rockstar, Steam, Arma, Riot Game, Temp & Logs."
-Write-Host "Deleting Cheat Configs: LostCheats, PlantHack"
+Write-Host "Removing EasyAntiCheat & BattlEye"
+Write-Host "Removing Cheat configs"
+Write-Host "Cleaning game data for cross bans"
 Write-Host "Please WAIT!"
 
 $path0 = 'C:\'
@@ -65,10 +66,10 @@ Get-ChildItem $path3 -Recurse -Force -Directory -Include 'Impulse', 'Rockstar Ga
 
 Write-Host "Cleaning Steam User Data"
 Start-Sleep -Seconds 1
-Get-ChildItem -Path $pathUD -Include * | remove-Item -recurse 
-Get-ChildItem -Path $pathDU -Include * | remove-Item -recurse 
-Get-ChildItem -Path $pathLO -Include * | remove-Item -recurse 
-Get-ChildItem -Path $pathCO -Include * | remove-Item -recurse
+Get-ChildItem -Path $pathUD -Include * | remove-Item -recurse -Verbose
+Get-ChildItem -Path $pathDU -Include * | remove-Item -recurse -Verbose
+Get-ChildItem -Path $pathLO -Include * | remove-Item -recurse -Verbose
+Get-ChildItem -Path $pathCO -Include * | remove-Item -recurse -Verbose
 Remove-Item –path $pathACF -include *.acf
 
 
@@ -97,8 +98,8 @@ Write-Host "Steam data cleared"
 
 
 Write-Host "Cleaning Registry for steam and rust"
-Remove-item -Path $regSU -Force -Recurse
-Remove-item -Path $regRU -Force -Recurse
+Remove-item -Path $regSU -Force -Recurse -Verbose
+Remove-item -Path $regRU -Force -Recurse -Verbose
 Write-Host "Registry Keys have been cleared"
 
 Write-Host " "
