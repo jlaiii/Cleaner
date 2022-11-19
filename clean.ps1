@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v1.0.4"
+$Title = "E-Vaders Cleaner v1.0.5"
 $host.UI.RawUI.WindowTitle = $Title
 Clear-DnsClientCache
 clear
@@ -7,7 +7,6 @@ Set-ExecutionPolicy Unrestricted -Force
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 Get-ChildItem -Path "E-Vaders Cleaner.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
-Get-ChildItem -Path "E-Vaders.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 
 (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/jlaiii/E-Vaders-Cleaner/main/E-Vaders.ps1","E-Vaders.ps1")
 
