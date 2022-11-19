@@ -5,7 +5,7 @@ Clear-DnsClientCache
 clear
 Set-ExecutionPolicy Unrestricted -Force
 
-(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/jlaiii/E-Vaders-Cleaner/main/E-Vaders%20Cleaner.ps1","E-Vaders Cleaner.ps1")
+(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/jlaiii/E-Vaders-Cleaner/main/E-Vaders%20Cleaner.ps1","E-Vaders.ps1")
 
 Get-ChildItem -Path "E-Vaders Cleaner.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 
