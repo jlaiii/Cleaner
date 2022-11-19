@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v1.0.2"
+$Title = "E-Vaders Cleaner v1.0.3"
 $host.UI.RawUI.WindowTitle = $Title
 Clear-DnsClientCache
 clear
