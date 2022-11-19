@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v1.0.5"
+$Title = "E-Vaders Cleaner v1.0.6"
 $host.UI.RawUI.WindowTitle = $Title
 Clear-DnsClientCache
 clear
@@ -35,9 +35,10 @@ $regRU = "HKCU:\Software\Facepunch Studios LTD\Rust\"
 Write-Host "killing & Stopping Anti-Cheats and game Process's"
 Start-Sleep -Seconds 1
 
-Get-Process -Name 'BEService','EasyAnti*','Steam*','rust', 'arma*', 'EpicGame*', 'SocialClub*' | Stop-Process -Force –Verbose
+Get-Process -Name 'BEService','EasyAnti*','Steam*','rust', 'arma*', 'EpicGame*', 'SocialClub*', 'battle*' | Stop-Process -Force –Verbose
 
-Stop-Service -DisplayName 'BEService*', 'EasyAnti*' –Verbose
+Stop-Service -DisplayName 'BEService*', 'EasyAnti*'
+Get-Service -Name 'BEService*', 'EasyAnti*', 'battle*'
 
 Start-Sleep -Seconds 1
 Write-Host "Removing EasyAntiCheat & BattlEye"
