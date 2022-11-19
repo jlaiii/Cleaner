@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Launcher123"
+$Title = "E-Vaders Launcher"
 $host.UI.RawUI.WindowTitle = $Title
 Set-ExecutionPolicy Unrestricted -Force
 Write-Host "Downloading Cleaner..."
