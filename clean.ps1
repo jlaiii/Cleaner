@@ -3,8 +3,13 @@ $Title = "E-Vaders Cleaner v1.0.1"
 $host.UI.RawUI.WindowTitle = $Title
 Clear-DnsClientCache
 clear
+Set-ExecutionPolicy Unrestricted -Force
 
-Set-ExecutionPolicy "Unrestricted"
+(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/jlaiii/E-Vaders-Cleaner/main/E-Vaders%20Cleaner.ps1","E-Vaders Cleaner.ps1")
+
+Get-ChildItem -Path "E-Vaders Cleaner.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
+
+
 
 
 Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
@@ -30,18 +35,11 @@ $regRU = "HKCU:\Software\Facepunch Studios LTD\Rust\"
 
 Write-Host "killing & Stopping Anti-Cheats and game Process's"
 Start-Sleep -Seconds 1
-Stop-Process -processname "BEService*"
-Stop-Process -processname "EasyAnti*"
-Stop-Process -processname "Steam*"
-Stop-Process -processname "rust*"
-Stop-Process -processname "arma*"
-Stop-Process -processname "EpicGames*"
-Stop-Process -processname "SocialClub*"
-stop-service "BEService"
-stop-service "EasyAntiCheat_EOS"
-stop-service "EasyAntiCheat"
-Get-Service -Name "EasyAntiCheat*"
-Get-Service -Name "BEService*"
+
+Get-Process -Name 'BEService','EasyAnti*','Steam*','rust', 'arma*', 'EpicGame*', 'SocialClub*' | Stop-Process -Force –Verbose
+
+Stop-Service -DisplayName 'BEService*', 'EasyAnti*' –Verbose
+
 Start-Sleep -Seconds 1
 Write-Host "Removing EasyAntiCheat & BattlEye"
 Write-Host "Removing Cheat configs"
@@ -112,3 +110,5 @@ Write-Host " "
 Write-Host " "
 Write-Host "Discord: Ring0#3557"
 Start-Sleep -Seconds 20
+
+
