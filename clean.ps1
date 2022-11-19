@@ -1,10 +1,11 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v1.0.3"
+$Title = "E-Vaders Cleaner v1.0.4"
 $host.UI.RawUI.WindowTitle = $Title
 Clear-DnsClientCache
 clear
 Set-ExecutionPolicy Unrestricted -Force
 
+Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 Get-ChildItem -Path "E-Vaders Cleaner.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 Get-ChildItem -Path "E-Vaders.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 
@@ -12,9 +13,6 @@ Get-ChildItem -Path "E-Vaders.ps1" | Foreach-Object {Remove-Item $_ -Force -recu
 
 
 
-
-
-Get-ChildItem -Path "main.ps1" | Foreach-Object {Remove-Item $_ -Force -recurse}
 clear
 Write-Host "E-Vaders Cleaner"
 Start-Sleep -Seconds 2
