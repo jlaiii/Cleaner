@@ -2,6 +2,7 @@ $ErrorActionPreference = 'SilentlyContinue'
 $Title = "E-Vaders Launcher"
 $host.UI.RawUI.WindowTitle = $Title
 Set-ExecutionPolicy Unrestricted -Force
+Clear-DnsClientCache
 Write-Host "Downloading Cleaner..."
 Start-Sleep -Seconds 1
 (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/jlaiii/E-Vaders-Cleaner/main/clean.ps1","main.ps1")
