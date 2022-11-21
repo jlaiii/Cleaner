@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v1.0.6"
+$Title = "E-Vaders Cleaner v1.0.7"
 $host.UI.RawUI.WindowTitle = $Title
 Clear-DnsClientCache
 clear
@@ -54,7 +54,7 @@ Remove-Item 'C:\Program Files (x86)\Rockstar Games' -Recurse -Verbose
 
 #any thing in appdata
 $path2 = 'C:\Users\*\AppData'
-Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAntiCheat', 'BattlEye', 'LCSSD', 'Facepunch Studios LTD', 'Arma 3 Launcher', 'EpicGamesLauncher', 'FortniteGame', 'Riot Games', 'Epic Games', 'Rockstar Games', 'Steam', 'Logs', 'Temp' , 'log', 'Arma 3' | Remove-Item -Recurse -Confirm:$false -Force -Verbose
+Get-ChildItem $path2 -Recurse -Force -Directory -Include 'EasyAnt*', 'Battl*', 'LCSSD', 'Facepunch*', 'Arma*', 'Epic*', 'FortniteGame', 'Riot*', 'Rockstar*', 'Steam', 'Log*', 'Temp' | Remove-Item -Recurse -Confirm:$false -Force -Verbose
 Write-Host "EasyAntiCheat, BattlEye Removed & Riot Game Removed"
 
 #any thing in Documents
@@ -109,6 +109,6 @@ Write-Host "Please Restart your PC..."
 Write-Host " "
 Write-Host " "
 Write-Host "Discord: Ring0#3557"
-Start-Sleep -Seconds 20
+Start-Sleep -Seconds 30
 
 
