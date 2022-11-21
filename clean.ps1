@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'SilentlyContinue'
-$Title = "E-Vaders Cleaner v1.0.7"
+$Title = "E-Vaders Cleaner v1.0.8"
 $host.UI.RawUI.WindowTitle = $Title
 Clear-DnsClientCache
 clear
@@ -47,7 +47,7 @@ Write-Host "Cleaning game data for cross bans"
 Write-Host "Please WAIT!"
 
 $path0 = 'C:\'
-Get-ChildItem $path0 -Recurse -Force -Directory -Include 'EasyAnti*', 'BattlEye*', 'Riot Game*' | Remove-Item -Recurse -Confirm:$false -Force -Verbose
+Get-ChildItem $path0 -Recurse -Force -Directory -Include 'EasyAnti*', 'BattlEye*' | Remove-Item -Recurse -Confirm:$false -Force -Verbose
 
 Remove-Item 'C:\Assets' -Recurse -Verbose
 Remove-Item 'C:\Program Files (x86)\Rockstar Games' -Recurse -Verbose
